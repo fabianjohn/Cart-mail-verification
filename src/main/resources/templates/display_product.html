@@ -1,0 +1,21 @@
+<div class="display_product-container"
+   xmlns:th="http://www.thymeleaf.org"
+   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" >
+   
+    <div class="flex-box">
+      <div class="home-prod-view" th:each="list : ${list}">
+        
+              <a th:href="@{|/buyProduct?code=${list.code}|}"><img class="product-image"
+               th:src="@{|/productImage?code=${list.code}|}" /></a><br>
+            Name: <span th:utext="${list.name}"></span><br>
+            Price: <span th:utext="${#numbers.formatDecimal(list.price,3,2,'COMMA')}"></span>
+            <h5><a th:href="@{|/productDetail?code=${list.code}&name=${list.name}&price=${list.price} |}">See Detail</a></h5>
+            
+            <!--    <a th:href="@{|/buyProduct?code=${product.code}|}">Buy Now</a>  -->
+            
+            
+            </div>
+          </div>  
+      
+       
+</div>

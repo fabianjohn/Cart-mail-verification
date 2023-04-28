@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8">
+      <title> Shop Online</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/styles.css}" />
+   </head>
+   <body>
+   
+      <th:block th:include="/_header"></th:block>
+      <th:block th:include="/_menu"></th:block>
+      
+      <div class="page-title">Ete-ta-ity</div>
+      <div class="demo-container">
+         <h3>Relax</h3>
+         <ul>
+            <li>Buy online</li>
+            <li>Fast delivery</li>
+            <li>Payment on delivery</li>
+         </ul>
+        	
+      		<form th:action="@{/home?keyword}">
+    			Filter: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
+   				 &nbsp;
+    			<input type="submit" value="Search" />
+   				 &nbsp;
+    			<input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
+			</form>
+     	
+      </div>
+      
+      <div class="flex-box">
+      <div class="home-prod-view" th:each="list : ${list}">
+        
+              <a th:href="@{|/buyProduct?code=${list.code}|}"><img class="product-image"
+               th:src="@{|/productImage?code=${list.code}|}" /></a><br>
+            Name: <span th:utext="${list.name}"></span><br>
+            Price: <span th:utext="${#numbers.formatDecimal(list.price,3,2,'COMMA')}"></span>
+            <h5><a th:href="@{|/productDetail?code=${list.code}&name=${list.name}&price=${list.price} |}">See Detail</a></h5>
+            
+            <!--    <a th:href="@{|/buyProduct?code=${product.code}|}">Buy Now</a>  -->
+            
+            
+            </div>
+          </div>  
+      
+       <th:block th:include="/display"></th:block>
+      
+      <th:block th:include="/_footer"></th:block>
+      
+      
+   </body>
+</html>

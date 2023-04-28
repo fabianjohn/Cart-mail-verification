@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ModelView</title>
+     <link rel="stylesheet" type="text/css" th:href="@{/styles.css}" />
+</head>
+<body>
+<a href="/listpro" style="float: left; color: black; font-size: 25px">Go Back</a>
+<!--  	<th:block th:include="/subhead"></th:block>  -->
+    <div> <span th:text="${message}"></span></div><br>
+    <div><span th:text="${welcomeMessage}"></span></div>
+  
+    <div>
+    	<h1>Product Details</h1>
+    	<div class="home-prod-view" th:each="obj : ${obj}">
+    	 
+    <!-- 	 <a th:href="@{|/buyProduct?code=${obj.code}|}"> --><img class="product-image"
+            th:src="@{|/productImage?code=${obj.code}|}" /></a> <br> 
+      <!--  Code: <span th:utext="${obj.code}"></span> -->  
+	  <div> Name:<b><span th:utext="${obj.name}"></span></b></div><br>
+	  <div> Price: <b><span th:utext="${obj.price}" style="color:red"></span></b>	</div> 
+	<div style="color:red; position: relative; float: right; border: 1px solid black; padding: 5px; width: 150px; top: -30px ; background-color: NONE"><a th:href="@{|/buyProduct?code=${obj.code}|}"><b>Add to Cart</b></div>
+	<!--  	<a th:href="@{|/buyProduct?code=${list.code}|}">Buy</a> -->
+		
+  
+  </div>  
+  
+  <div class="home-prod-view" id="black" th:each="obj : ${obj}" style="width: 40px; height: 200px; float: left; margin-right: 200px; text-align: center">
+    	 
+    <!-- 	 <a th:href="@{|/buyProduct?code=${obj.code}|}"> --><img class="product-image"
+            th:src="@{|/productImage?code=${obj.code}|}" /></a> <br> 
+            <p>Black</p>
+	<!--  	<a th:href="@{|/buyProduct?code=${list.code}|}">Buy</a> -->
+		
+  
+  </div> 
+  <div class="home-prod-view" id= "purple" th:each="obj : ${obj}" style="width: 40px; height: 200px; float: left; margin-right: 200px; text-align: center">
+    	 
+    <!-- 	 <a th:href="@{|/buyProduct?code=${obj.code}|}"> --><img class="product-image"
+            th:src="@{|/productImage?code=${obj.code}|}" /></a> <br> 
+            <p>Purple</p>
+	<!--  	<a th:href="@{|/buyProduct?code=${list.code}|}">Buy</a> -->
+		
+  </div> 
+  <div class="home-prod-view" id = "white" th:each="obj : ${obj}" style="width: 40px; height: 200px; float: left; text-align: center">
+    	 
+    <!-- 	 <a th:href="@{|/buyProduct?code=${obj.code}|}"> --><img class="product-image"
+            th:src="@{|/productImage?code=${obj.code}|}" /></a> <br> 
+            <p>White</p>
+	<!--  	<a th:href="@{|/buyProduct?code=${list.code}|}">Buy</a> -->
+		
+  </div> 
+ </div><br><br><hr style="margin-top:200px">
+  <!-- 
+    <div>
+	    <li th:utext="${job}"></li>
+	</div>
+-->
+
+	<div class="flex-box" style="margin-top: 100px">
+      <div class="home-prod-view" th:each="listproduct : ${listproduct}">
+         
+              <a th:href="@{|/buyProduct?code=${listproduct.code}|}"><img class="product-image"
+               th:src="@{|/productImage?code=${listproduct.code}|}" /></a><br>
+     <!--   Code: <span th:utext="${listproduct.code}" style="color:red"></span><br> -->
+            Name: <b><span th:utext="${listproduct.name}"></span></b><br>
+            Price:<b><span th:utext="${#numbers.formatDecimal(listproduct.price,3,2,'COMMA')}" style="color:red"></span></b>
+            <h5><a th:href="@{|/productDetail?code=${listproduct.code}&name=${listproduct.name}&price=${listproduct.price} |}">See Detail</a></h5>
+            
+            <!--    <a th:href="@{|/buyProduct?code=${product.code}|}">Buy Now</a>  -->
+            
+           
+            </div>
+          </div>   
+         
+      
+         
+         
+
+
+</body>
+</html>

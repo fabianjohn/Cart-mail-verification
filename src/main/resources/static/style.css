@@ -1,0 +1,16 @@
+@charset "ISO-8859-1";
+html {
+    background: white;
+}
+h3 {
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    max-width: 1200px;
+    min-width: 360px;
+    margin: 0px auto;
+    background: rgb(192, 192, 192);
+    padding:0px 5px;
+    text-align:center;
+}
