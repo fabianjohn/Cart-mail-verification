@@ -8,7 +8,7 @@ import java.util.List;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
-import org.hibernate.HibernateException;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -27,6 +27,7 @@ import com.fabiscode.entity.Product;
 import form.ProductForm;
 import model.ProductInfo;
 import pagination.PaginationResult;
+
 
 @Transactional
 @Repository
@@ -144,18 +145,17 @@ public class ProductDAO {
 	}
 	
 	
-/*
-	
-*/
+
 
 public List<Product> findByKeyword(String keyword) {
-	String sql = "SELECT t FROM products t WHERE t.category like '%polo%' ";     
+	String sql = "SELECT t FROM Product t WHERE t.category LIKE '%:keyword%' ";     
     Session session = this.sessionFactory.getCurrentSession();
-    @SuppressWarnings("unchecked")
-	List<Product>list = session.createQuery(sql, Product.class).list();
+    List<Product>list = session.createQuery(sql, Product.class).list();
 	//List<Product>list = ((ProductDAO) session).findByKeyword(keyword);
 	return list;
 }
+
+
 
 
 }

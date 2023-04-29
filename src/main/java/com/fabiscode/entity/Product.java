@@ -16,7 +16,6 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 @EnableAutoConfiguration
 @Entity
-//@javax.persistence.Entity(name = "products") //This enable execution of sql query
 @Table(name = "Products")
 public class Product implements Serializable {
 	

@@ -7,12 +7,13 @@
       <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
    </head>
    <body>
+       <th:block th:include="/backg"></th:block>
       <th:block th:include="/_header"></th:block>
       <th:block th:include="/_menu"></th:block>
       
       <div class="page-title" style="background-color: none; width: 200px">Product List</div>
       	
-      		<form th:action="@{/home}">
+      		<form th:action="@{/home?keyword}">
     			Filter: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
    				 &nbsp;
     			<input type="submit" value="Search" />
@@ -26,8 +27,8 @@
              <li> <a th:href="@{|/buyProduct?code=${prodInfo.code}|}"><img class="product-image"
                th:src="@{|/productImage?code=${prodInfo.code}|}" /></a></li> 
         <!--    <li>Code: <span th:utext="${prodInfo.code}"></span></li>  -->
-            <li>Name: <span th:utext="${prodInfo.name}"></span></li>
-            <li>Price: <span th:utext="${#numbers.formatDecimal(prodInfo.price,3,2,'COMMA')}"></span></li>
+            <li>Name: <span th:utext="${prodInfo.name}" style="font-style: oblique"></span></li>
+            <li>Price: <span th:utext="${#numbers.formatDecimal(prodInfo.price,3,2,'COMMA')}" style="color:red;font-style: oblique"></span></li>
             <li>
                <a th:href="@{|/buyProduct?code=${prodInfo.code}|}">Buy Now</a>
             </li>

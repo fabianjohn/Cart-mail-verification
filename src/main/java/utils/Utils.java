@@ -32,5 +32,10 @@ public class Utils {
 	      return (CartInfo) request.getSession().getAttribute("lastOrderedCart");
 	   }
 
+	public static String getSiteURL(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

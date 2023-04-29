@@ -107,8 +107,8 @@ public class MainController {
 	   public String listProductHandler(Model model, //
 	         @RequestParam(value = "name", defaultValue = "") String likeName,
 	         @RequestParam(value = "page", defaultValue = "1") int page) {
-	      final int maxResult = 20;
-	      final int maxNavigationPage = 5;
+	      final int maxResult = 50;
+	      final int maxNavigationPage = 15;
 
 	      PaginationResult<ProductInfo> result = productDAO.queryProducts(page, //
 	            maxResult, maxNavigationPage, likeName);
@@ -216,9 +216,10 @@ public class MainController {
 	      CartInfo cartInfo = Utils.getCartInSession(request);
 	      CustomerInfo customerInfo = new CustomerInfo(customerForm);
 	      cartInfo.setCustomerInfo(customerInfo);
+	     String siteURL = Utils.getSiteURL(request);
 	      
 	     
-	      orderDAO.sendVerificationEmail(cartInfo);
+	      orderDAO.sendVerificationEmail(cartInfo, siteURL);
 			model.addAttribute("pageTitle", "Registration successfull");
 			System.out.println("Mail sent to " + cartInfo.getCustomerInfo().getEmail());
 
@@ -322,7 +323,7 @@ public class MainController {
 	   @GetMapping(path={"/home"})
 	    public String viewHomePage(Model model, Product product, @RequestParam("keyword") String keyword) {
 		   if(keyword != null) {
-	        List<Product> list = (List<Product>) productDAO.findByKeyword(keyword) ; //listAll(keyword);
+	        List<Product> list =  productDAO.findByKeyword(keyword) ; //listAll(keyword);
 	        model.addAttribute("list", list);
 		   }else {
 			   List<Product>list = productDAO.findAll();

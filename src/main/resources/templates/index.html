@@ -6,19 +6,12 @@
       <link rel="stylesheet" type="text/css" th:href="@{/styles.css}" />
    </head>
    <body>
+      <th:block th:include="/backg"></th:block>
       <th:block th:include="/_header"></th:block>
       <th:block th:include="/_menu"></th:block>
       
       <div class="page-title">Ete-ta-ity</div>
-      <div class="demo-container">
-         <h3>Relax</h3>
-         <ul>
-            <li>Buy online</li>
-            <li>Fast delivery</li>
-            <li>Payment on delivery</li>
-         </ul>
-         <th:block th:include="/sliding"></th:block>
-      </div>
+      <th:block th:include="/sliding"></th:block>
       
       <div class="flex-box">
       <div class="home-prod-view" th:each="listproduct : ${listproduct}">
@@ -26,8 +19,8 @@
               <a th:href="@{|/buyProduct?code=${listproduct.code}|}"><img class="product-image"
                th:src="@{|/productImage?code=${listproduct.code}|}" /></a><br>
       <!--       Code: <span th:utext="${listproduct.code}"></span><br>  -->
-            Name: <span th:utext="${listproduct.name}"></span><br>
-            Price: <b><span th:utext="${#numbers.formatDecimal(listproduct.price,3,2,'COMMA')}" style="color:red"></span></b>
+            Name: <span th:utext="${listproduct.name}" style="font-style: oblique"></span><br>
+            Price: N<b><span th:utext="${#numbers.formatDecimal(listproduct.price,3,2,'COMMA')}" style="color:red;font-style: oblique"></span></b>
             <h5><a th:href="@{|/productDetail?code=${listproduct.code}&name=${listproduct.name}&price=${listproduct.price} |}">See Detail</a></h5>
             
             <!--    <a th:href="@{|/buyProduct?code=${product.code}|}">Buy Now</a>  -->

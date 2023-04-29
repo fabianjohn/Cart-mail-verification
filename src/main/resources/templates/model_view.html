@@ -5,21 +5,21 @@
      <link rel="stylesheet" type="text/css" th:href="@{/styles.css}" />
 </head>
 <body>
-<a href="/listpro" style="float: left; color: black; font-size: 25px">Go Back</a>
+<a href="/listpro" style="position: absolute; left: 200px; color: black; font-size: 20px; top: 100px">Go Back</a>
 <!--  	<th:block th:include="/subhead"></th:block>  -->
     <div> <span th:text="${message}"></span></div><br>
     <div><span th:text="${welcomeMessage}"></span></div>
   
     <div>
-    	<h1>Product Details</h1>
+    	<h1></h1>
     	<div class="home-prod-view" th:each="obj : ${obj}">
     	 
     <!-- 	 <a th:href="@{|/buyProduct?code=${obj.code}|}"> --><img class="product-image"
             th:src="@{|/productImage?code=${obj.code}|}" /></a> <br> 
       <!--  Code: <span th:utext="${obj.code}"></span> -->  
-	  <div> Name:<b><span th:utext="${obj.name}"></span></b></div><br>
-	  <div> Price: <b><span th:utext="${obj.price}" style="color:red"></span></b>	</div> 
-	<div style="color:red; position: relative; float: right; border: 1px solid black; padding: 5px; width: 150px; top: -30px ; background-color: NONE"><a th:href="@{|/buyProduct?code=${obj.code}|}"><b>Add to Cart</b></div>
+	  <div> Name:<b><span th:utext="${obj.name}" style="font-style: oblique"></span></b></div><br>
+	  <div> Price: <b><span th:utext="${obj.price}" style="color:red; font-style: oblique"></span></b>	</div> 
+	<div style="color:red; position: absolute; right:500px; border: 1px solid black; padding: 5px; width: 150px; top: 150px ; background-color:LightGray"><a th:href="@{|/buyProduct?code=${obj.code}|}"><b>Add to Cart</b></div>
 	<!--  	<a th:href="@{|/buyProduct?code=${list.code}|}">Buy</a> -->
 		
   

@@ -142,18 +142,18 @@ public class OrderDAO {
 		return query.getResultList();
 	}
 	
-	public void sendVerificationEmail(CartInfo cartInfo)
+	public void sendVerificationEmail(CartInfo cartInfo, String siteURL)
            throws UnsupportedEncodingException, MessagingException {
 	String subject = "Please verify your registration";
 	String senderName = "Eta-ity";
-	String mailContent = "<p>Dear" +  cartInfo.getCustomerInfo().getName();  //.getName() + " </p>";
-		   mailContent += "<p>Please click the link below to verify to your registration:</p>";
+	String mailContent = "<p>Dear  " +  cartInfo.getCustomerInfo().getName();  //.getName() + " </p>";
+		   mailContent += "<p>Thank you for patronage your order no is:</p>" + cartInfo.getOrderNum();
 		   
-		 //  String verifyURL = siteURL + "/verify?code=" + customer.getVerificationCode();
+		  String verifyURL = siteURL + "/verify?code=" + cartInfo.getOrderNum() ;  //getVerificationCode();
 		   
-		  // mailContent += "<h3><a = \"href=" + verifyURL + "\">verify</a><h3>";
+		   mailContent += "<h3><a = \"href=" + verifyURL + "\">Verify</a><h3>";
 		   
-		   mailContent += "<p>Thank yoy<br>Eta-ity</p>";
+		   mailContent += "<p>Thank you<br>Eta-ity</p>";
 		   
 		 
 		   MimeMessage message = mailSender.createMimeMessage(); //createMimeMessage();
