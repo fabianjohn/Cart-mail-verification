@@ -14,8 +14,9 @@
 	<name>ShoppingCart</name>
 	<description>ShoppingCart SpringBoot Hibernate Thymeleaf</description>
 	<properties>
-		
-		<java.version>11</java.version>
+      <maven.compiler.source>1.8</maven.compiler.source>
+      <maven.compiler.target>1.8</maven.compiler.target>
+	  <java.version>11</java.version>
 	</properties>
 	
 	<dependencies>
@@ -102,20 +103,8 @@
 			<artifactId>bootstrap</artifactId>
 			<version>4.3.1</version>
 		</dependency>
-		<!-- 
-		<dependency>
-			<artifactId>org.springframework.boot</artifactId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-			     <groupId>org.junit.vintage</groupId>
-			     <artifactId>junit-vintage-engine</artifactId>
-			     <exclusion>
-		   <exclusions>
-		</dependency>
-	-->
-	
+		
+	    <!-- mail sent -->
 	    <dependency>
     		<groupId>org.subethamail</groupId>
     		<artifactId>subethasmtp</artifactId>
@@ -172,7 +161,6 @@
         </dependency>
          -->
        
-         
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>

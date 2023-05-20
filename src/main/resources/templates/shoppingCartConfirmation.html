@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
    <head>
       <meta charset="UTF-8">
-      <title>Shopping Cart Confirmation</title>
+      <title>Shopping Confirmation</title>
       <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
    </head>
    <body>
@@ -13,9 +13,9 @@
       <div class="customer-info-container">
          <h3>Customer Information:</h3>
          <ul>
-            <li>Name: <span th:utext="${myCart.customerInfo.name}"></span></li>
-            <li>Email: <span th:utext="${myCart.customerInfo.email}"></span></li>
-            <li>Phone: <span th:utext="${myCart.customerInfo.phone}"></span></li>
+            <li>Name: <span th:utext="${myCart.customerInfo.name}"></span></li><br>
+            <li>Email: <span th:utext="${myCart.customerInfo.email}"></span></li><br>
+            <li>Phone: <span th:utext="${myCart.customerInfo.phone}"></span></li><br>
             <li>Address: <span th:utext="${myCart.customerInfo.address}"></span></li>
          </ul>
          <h3>Cart Summary:</h3>
@@ -28,6 +28,7 @@
             </li>
          </ul>
       </div>
+      
       <form method="POST" th:action="@{/shoppingCartConfirmation}">
          <!-- Edit Cart -->
          <a class="navi-item" th:href="@{/shoppingCart}">
@@ -37,15 +38,17 @@
          <a class="navi-item" th:href="@{/shoppingCartCustomer}">
          Edit Customer Info
          </a>
-         <!-- Send/Save -->
+         <!-- Send/Save -->  
          <input type="submit" value="Send" class="button-send-sc" />
       </form>
+      
+      
       <div class="container">
          <div class="product-preview-container" th:each="cartLineInfo : ${myCart.cartLines}">
             <ul>
                <li>
                   <img class="product-image"
-                     src="@{|/productImage?code=${cartLineInfo.productInfo.code}|}" />
+                     src="@{|/productImage?code=${myCart.cartLines.code}|}" /><!--cartLineInfo.productInfo  -->
                </li>
                <li>
                   Code: <span th:utext="${cartLineInfo.productInfo.code}"></span>

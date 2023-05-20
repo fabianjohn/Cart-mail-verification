@@ -2,22 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
    <head>
       <meta charset="UTF-8">
-      <title>Enter Customer Information</title>
+      <title>Enter Custom Information</title>
       <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
    </head>
    <body>
       <th:block th:include="/_header"></th:block>
       <th:block th:include="/_menu"></th:block>
       
-      <div class="page-title">Enter Customer Information</div>
+      <div class="page-title" style="margin-right: auto; margin-left: auto">Enter Customer Information</div>
       
-      <form method="POST" th:object = "${customerForm}" th:action="@{/shoppingCartCustomer}">
+      <form id="custinfo" method="POST" th:object = "${customerForm}" th:action="@{/shoppingCartCustomer}">
          
         
          <table>
             <tr>
                <td>Name *</td>
-               <td><input th:field="*{name}" /></td>
+               <td><input th:field="*{name}" style="width: 500px; height: 30px; margin-top: 15px" /></td>
                <td>
                   <span class="error-message"
                      th:if="${#fields.hasErrors('name')}" th:errors="*{name}">..</span>
@@ -25,7 +25,7 @@
             </tr>
             <tr>
                <td>Email *</td>
-               <td><input th:field="*{email}" /></td>
+               <td><input th:field="*{email}" style="width: 500px; height: 30px; margin-top: 15px"/></td>
                <td>
                   <span class="error-message"
                      th:if="${#fields.hasErrors('email')}" th:errors="*{email}">..</span>
@@ -33,7 +33,7 @@
             </tr>
             <tr>
                <td>Phone *</td>
-               <td><input th:field="*{phone}" /></td>
+               <td><input th:field="*{phone}" style="width: 500px; height: 30px; margin-top: 15px"/></td>
                <td>
                   <span class="error-message"
                      th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">..</span>
@@ -41,7 +41,7 @@
             </tr>
             <tr>
                <td>Address *</td>
-               <td><input th:field="*{address}" /></td>
+               <td><input th:field="*{address}" style="width: 500px; height: 30px; margin-top: 15px"/></td>
                <td>
                   <span class="error-message"
                      th:if="${#fields.hasErrors('address')}" th:errors="*{address}">..</span>
@@ -49,8 +49,8 @@
             </tr>
             <tr>
                <td>&nbsp;</td>
-               <td><input type="submit" value="Submit" /> <input type="reset"
-                  value="Reset" /></td>
+               <td><input type="submit" value="Submit" style="width: 500px; height: 25px"/> <input type="reset"
+                  value="Reset" style="width: 500px; height: 25px"/></td>
             </tr>
          </table>
          

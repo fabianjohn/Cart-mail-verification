@@ -148,10 +148,20 @@ public class OrderDAO {
 	String senderName = "Eta-ity";
 	String mailContent = "<p>Dear  " +  cartInfo.getCustomerInfo().getName();  //.getName() + " </p>";
 		   mailContent += "<p>Thank you for patronage your order no is:</p>" + cartInfo.getOrderNum();
+		   mailContent += "<p>Thanks for your order. It’s on-hold until we confirm that payment has been received. In the meantime, here’s a reminder of what you ordered:</p>";
+		   
+		   mailContent += "<ul>"
+		   		+ " <h6>Bank Details</h6>"
+		   		+ "<li>Guarantee Trust Bank</li>"
+		   		+"<li>Account Number</li>";
+		   		
+		   		
+		   		
+				   
 		   
 		  String verifyURL = siteURL + "/verify?code=" + cartInfo.getOrderNum() ;  //getVerificationCode();
 		   
-		   mailContent += "<h3><a = \"href=" + verifyURL + "\">Verify</a><h3>";
+		   mailContent += "<h3><a = \"href=" + verifyURL + "\">verify</a><h3>";
 		   
 		   mailContent += "<p>Thank you<br>Eta-ity</p>";
 		   
