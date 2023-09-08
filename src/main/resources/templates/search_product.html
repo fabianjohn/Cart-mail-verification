@@ -7,12 +7,12 @@
       <link rel="stylesheet" type="text/css" th:href="@{/styles.css}" />
    </head>
    <body>
-       <div th:replace="fragments :: bkg_color_head" /></div>
+    <!--    <th:block th:include="/backg"></th:block> -->
       <div th:replace="fragments :: header" /></div>
       <div th:replace="fragments :: menu" /></div>
       
       <div class="page-title">Ete-ta-ity</div>
-    <!--    <th:block th:include="/sliding"></th:block> -->
+      <th:block th:include="/sliding"></th:block>
       
       <div class="flex-box">
       <div class="home-prod-view" th:each="listproduct : ${listproduct}">
@@ -32,7 +32,7 @@
       
        <div th:replace="fragments :: display_product" /></div>
       
-      <div th:replace="fragments :: footer" /></div>
+       <div th:replace="fragments :: footer" /></div>
       
    </body>
 </html>

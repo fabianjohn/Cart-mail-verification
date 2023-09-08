@@ -137,6 +137,7 @@ public class ProductDAO {
 		} catch (Exception e) {
 			if (transaction != null) {
 				transaction.rollback();
+				
 			}
 		} finally {
 			session.close();
@@ -148,13 +149,16 @@ public class ProductDAO {
 
 
 public List<Product> findByKeyword(String keyword) {
-	String sql = "SELECT t FROM Product t WHERE t.category LIKE '%:keyword%' ";     
+	
+	String sql = "SELECT p FROM Product p WHERE p.category LIKE  'pol%' OR p.category LIKE 'shi%' OR p.category LIKE 'con%' ";  
     Session session = this.sessionFactory.getCurrentSession();
-    List<Product>list = session.createQuery(sql, Product.class).list();
+    List<Product>list = session.createQuery(sql, Product.class).list() ;
 	//List<Product>list = ((ProductDAO) session).findByKeyword(keyword);
+	 
 	return list;
-}
 
+
+}
 
 
 

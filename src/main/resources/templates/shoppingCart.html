@@ -6,8 +6,9 @@
       <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
    </head>
    <body>
-      <th:block th:include="/_header"></th:block>
-      <th:block th:include="/_menu"></th:block>
+     <div th:replace="fragments :: bkg_color_head" /></div>
+      <div th:replace="fragments :: header" /></div>
+      <div th:replace="fragments :: menu" /></div>
       
       <div class="page-title">My Cart</div>
       
@@ -63,7 +64,7 @@
          </form>
       </th:block>
       
-      <th:block th:include="/_footer"></th:block>
+      <div th:replace="fragments :: footer" /></div>
       
    </body>
 </html>

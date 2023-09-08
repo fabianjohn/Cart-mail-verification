@@ -6,8 +6,8 @@
       <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
    </head>
    <body>
-      <th:block th:include="/_header"></th:block>
-      <th:block th:include="/_menu"></th:block>
+      <div th:replace="fragments :: header" /></div>
+      <div th:replace="fragments :: menu" /></div>
       
       <div class="page-title">Confirmation</div>
       <div class="customer-info-container">
@@ -71,7 +71,7 @@
          </div>
       </div>
       
-      <th:block th:include="/_footer"></th:block>
+      <div th:replace="fragments :: footer" /></div>
       
    </body>
 </html>

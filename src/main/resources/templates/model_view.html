@@ -1,55 +1,62 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>ModelView</title>
-     <link rel="stylesheet" type="text/css" th:href="@{/styles.css}" />
-</head>
+<head th:replace="fragments :: html_head" />
 <body>
-<a href="/listpro" style="position: absolute; left: 200px; color: black; font-size: 20px; top: 100px">Go Back</a>
+<a href="/ " style="position: absolute; left: 200px; color: black; font-size: 20px; top: 100px">Go Back</a>
 <!--  	<th:block th:include="/subhead"></th:block>  -->
     <div> <span th:text="${message}"></span></div><br>
     <div><span th:text="${welcomeMessage}"></span></div>
   
     <div>
     	<h1></h1>
-    	<div class="home-prod-view" th:each="obj : ${obj}">
+    	<div class="home-prod-view"  th:each="obj : ${obj}">
     	 
-    <!-- 	 <a th:href="@{|/buyProduct?code=${obj.code}|}"> --><img class="product-image"
+    <!-- 	 <a th:href="@{|/buyProduct?code=${obj.code}|}"> --><img class="sample_view"
             th:src="@{|/productImage?code=${obj.code}|}" /></a> <br> 
       <!--  Code: <span th:utext="${obj.code}"></span> -->  
 	  <div> Name:<b><span th:utext="${obj.name}" style="font-style: oblique"></span></b></div><br>
 	  <div> Price: <b><span th:utext="${obj.price}" style="color:red; font-style: oblique"></span></b>	</div> 
-	<div style="color:red; position: absolute; right:500px; border: 1px solid black; padding: 5px; width: 150px; top: 150px ; background-color:LightGray"><a th:href="@{|/buyProduct?code=${obj.code}|}"><b>Add to Cart</b></div>
+	  Sizes:  20  <input type="checkbox" name="size" placeholder="size" value="32" >
+	          25  <input type="checkbox" name="size" placeholder="size" value="32" >
+	           30  <input type="checkbox" name="size" placeholder="size" value="32" >
+	            32  <input type="checkbox" name="size" placeholder="size" value="32" >
+	             36  <input type="checkbox" name="size" placeholder="size" value="32" >
+	              40  <input type="checkbox" name="size" placeholder="size" value="32" >
+	               41  <input type="checkbox" name="size" placeholder="size" value="32" >
+	                43  <input type="checkbox" name="size" placeholder="size" value="32" >
+	<div style="color:red; position: absolute; right:500px; border: none; padding: 5px; width: 150px; top: 550px ; background-color:LightGray"><a style="text-decoration: none" th:href="@{|/buyProduct?code=${obj.code}|}"><b>Add to Cart</b></a></div>
 	<!--  	<a th:href="@{|/buyProduct?code=${list.code}|}">Buy</a> -->
 		
   
   </div>  
-  
+  <!--  
   <div class="home-prod-view" id="black" th:each="obj : ${obj}" style="width: 40px; height: 200px; float: left; margin-right: 200px; text-align: center">
     	 
-    <!-- 	 <a th:href="@{|/buyProduct?code=${obj.code}|}"> --><img class="product-image"
+    <!-- 	 <a th:href="@{|/buyProduct?code=${obj.code}|}"> -- <img class="product-image"
             th:src="@{|/productImage?code=${obj.code}|}" /></a> <br> 
             <p>Black</p>
-	<!--  	<a th:href="@{|/buyProduct?code=${list.code}|}">Buy</a> -->
+	!--  	<a th:href="@{|/buyProduct?code=${list.code}|}">Buy</a> --
 		
   
   </div> 
   <div class="home-prod-view" id= "purple" th:each="obj : ${obj}" style="width: 40px; height: 200px; float: left; margin-right: 200px; text-align: center">
     	 
-    <!-- 	 <a th:href="@{|/buyProduct?code=${obj.code}|}"> --><img class="product-image"
+    <!-- 	 <a th:href="@{|/buyProduct?code=${obj.code}|}"> -- <img class="product-image"
             th:src="@{|/productImage?code=${obj.code}|}" /></a> <br> 
             <p>Purple</p>
-	<!--  	<a th:href="@{|/buyProduct?code=${list.code}|}">Buy</a> -->
+	<!--  	<a th:href="@{|/buyProduct?code=${list.code}|}">Buy</a> --
 		
   </div> 
   <div class="home-prod-view" id = "white" th:each="obj : ${obj}" style="width: 40px; height: 200px; float: left; text-align: center">
     	 
-    <!-- 	 <a th:href="@{|/buyProduct?code=${obj.code}|}"> --><img class="product-image"
+    <!-- 	 <a th:href="@{|/buyProduct?code=${obj.code}|}"> -- <img class="product-image"
             th:src="@{|/productImage?code=${obj.code}|}" /></a> <br> 
             <p>White</p>
-	<!--  	<a th:href="@{|/buyProduct?code=${list.code}|}">Buy</a> -->
+	<!--  	<a th:href="@{|/buyProduct?code=${list.code}|}">Buy</a> --
 		
   </div> 
+  -->
+  
  </div><br><br><hr style="margin-top:200px">
   <!-- 
     <div>
@@ -58,7 +65,7 @@
 -->
 
 	<div class="flex-box" style="margin-top: 100px">
-      <div class="home-prod-view" th:each="listproduct : ${listproduct}">
+      <div class="prod-view" th:each="listproduct : ${listproduct}">
          
               <a th:href="@{|/buyProduct?code=${listproduct.code}|}"><img class="product-image"
                th:src="@{|/productImage?code=${listproduct.code}|}" /></a><br>

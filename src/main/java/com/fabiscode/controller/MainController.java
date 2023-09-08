@@ -11,9 +11,11 @@ import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
+import org.springframework.data.repository.query.Param;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -95,12 +97,9 @@ public class MainController {
 	   }
 
 	   @RequestMapping("/test")
-	   public String home() {
-	      return "NewFile";
+	   public String New() {
+	      return "hom";
 	   }
-
-	  
-	   
 	   
 	   // Product List
 	   @RequestMapping({ "/productList" })
@@ -307,10 +306,11 @@ public class MainController {
 	      }
 	      response.getOutputStream().close();
 	   }
+	   
 
 /* My ideal work*/
 	// Product List
-	   @GetMapping("/listpro")
+	   @RequestMapping("/listpro ")
 		public String viewindexPage(Model model) {
 			List<Product> listproduct = productDAO.findAll(); 
 			model.addAttribute("listproduct", listproduct);
@@ -320,20 +320,25 @@ public class MainController {
 		}
 	   
 	   
-	   @GetMapping(path={"/home"})
+	
+	  //search product by keyword
+	   @GetMapping("/home")
 	    public String viewHomePage(Model model, Product product, @RequestParam("keyword") String keyword) {
 		   if(keyword != null) {
-	        List<Product> list =  productDAO.findByKeyword(keyword) ; //listAll(keyword);
-	        model.addAttribute("list", list);
+	        List<Product>list =  productDAO.findByKeyword(keyword) ; //listAll(keyword);
+	        model.addAttribute("list", list );
+	        model.addAttribute("keyword", keyword);
 		   }else {
 			   List<Product>list = productDAO.findAll();
 			   model.addAttribute("list", list);
-		        System.out.println("list" + list);
+		       // System.out.println("list" + list);
 		   }
 	        
 	         
 	        return "home";
 	    }
+	   
+	  
 	   
 	   @GetMapping("/####")
 	   public String passParametersWithModelMap(@RequestParam("name") String name,  Product product,
@@ -363,7 +368,7 @@ public class MainController {
 	       return "view/viewPage";
 	   }
 	   
-	   
+	   //show product details
 	   @GetMapping(value = "/productDetail")
 	   public ModelAndView passParametersWithModelAndView(Product product, @RequestParam("code") String code, Model model) {
 		   if(code !=null) {
@@ -377,8 +382,7 @@ public class MainController {
 	       return modelAndView;
 	   }
 	  
-	  
-			   
+	    
 	  
 }
 

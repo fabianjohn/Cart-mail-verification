@@ -31,8 +31,8 @@ public class OrderDetail implements Serializable {
             foreignKey = @ForeignKey(name = "ORDER_DETAIL_PROD_FK"))
     private Product product;
 
-    @Column(name = "Quanity", nullable = false)
-    private int quanity;
+    @Column(name = "Quantity", nullable = false)
+    private int quantity;
 
     @Column(name = "Price", nullable = false)
     private double price;
@@ -65,11 +65,11 @@ public class OrderDetail implements Serializable {
     }
 
     public int getQuanity() {
-        return quanity;
+        return quantity;
     }
 
     public void setQuanity(int quanity) {
-        this.quanity = quanity;
+        this.quantity = quanity;
     }
 
     public double getPrice() {

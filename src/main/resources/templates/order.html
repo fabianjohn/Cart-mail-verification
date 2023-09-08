@@ -6,8 +6,8 @@
       <link rel="stylesheet" type="text/css" th:href="@{/styles.css}">
    </head>
    <body>
-      <th:block th:include="/_header"></th:block>
-      <th:block th:include="/_menu"></th:block>
+      <div th:replace="fragments :: header" /></div>
+      <div th:replace="fragments :: menu" /></div>
       
       <div class="page-title">Order Info</div>
       
@@ -39,13 +39,13 @@
          <tr th:each="orderDetailInfo : ${orderInfo.details}">
             <td th:utext="${orderDetailInfo.productCode}"></td>
             <td th:utext="${orderDetailInfo.productName}"></td>
-            <td th:utext="${orderDetailInfo.quanity}"></td>
+            <td th:utext="${orderDetailInfo.quantity}"></td>
             <td th:utext="${#numbers.formatDecimal(orderDetailInfo.price,3,2,'COMMA')}"></td>
             <td th:utext="${#numbers.formatDecimal(orderDetailInfo.amount,3,2,'COMMA')}"></td>
          </tr>
       </table>
       
-      <th:block th:include="/_footer"></th:block>
+      <div th:replace="fragments :: footer" /></div>
       
    </body>
 </html>

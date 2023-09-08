@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" >
+<head th:fragment="html_head">
+<meta charset="ISO-8859-1">
+<title>[[${pageTitle}]] - Eta-Ity Store</title>
+<link rel="icon" type="images/x-icon" href="https://www.w3docs.com/favicon.ico" />
+<link rel="stylesheet" type="text/css" th:href="@{/styles.css}" />
+</head>
+<body>
+<!-- header -->
+<div th:fragment="header" class="header-container">
+
+      <div class="site-name">Link Express</div>
+          <div class="header-bar">
+               <th:block sec:authorize="isAuthenticated()">
+                  Hello
+               <!--      <a th:href="@{/admin/accountInfo}" th:utext="${#request.userPrincipal.name}">..</a> -->
+              &nbsp;|&nbsp;
+                <a th:href="@{/admin/logout}">Logout</a>
+               </th:block>
+      
+              <th:block >
+            <a th:href="@{/admin/login}">Login</a>
+        </th:block> 
+   </div>
+  
+</div>
+
+<div th:fragment="bkg_color_head" class="backg-container" >
+         
+      <div class="column" Style="float: left;  display: block">
+      <div>
+      <p style=" font-style: oblique ;  -ms-transform: skewY(20deg); /* IE 9 */
+  transform: skewY(20deg);" ></p>
+        
+      <p style="font-style: oblique;   -ms-transform: skewY(20deg); /* IE 9 */
+  transform: skewY(20deg);" ></p>
+      
+      <p style="font-style: oblique;   -ms-transform: skewY(20deg); /* IE 9 */
+  transform: skewY(20deg); " ></p>
+      
+      <p style="font-style: oblique;   -ms-transform: skewY(20deg); /* IE 9 */
+  transform: skewY(20deg);" ></p>
+     
+     <!--  
+      <div class="column">
+      <img alt="" src="./images/baby bag.jpg">
+      </div>
+      -->
+   </div>
+  
+</div>
+</div>
+
+
+<!-- menu -->
+<div th:fragment="menu" class="menu-container" >
+   
+      <a th:href="@{/ }">Home</a>
+   |
+        <a th:href="@{/productList}">
+         Product List
+         </a>
+   |
+           <a th:href="@{/shoppingCart}">
+            My Cart
+             </a>
+   |
+        <th:block sec:authorize="hasAnyRole('ROLE_MANAGER','ROLE_EMPLOYEE')">
+           <a th:href="@{/admin/orderList}">
+            Order List
+           </a>
+      |
+         </th:block>
+    <th:block sec:authorize="hasRole('ROLE_MANAGER')">
+       <a th:href="@{/admin/product}">
+         Create Product
+       </a>
+      |
+   </th:block>
+</div>
+
+<!-- listProduct -->
+<div th:fragment="display_product" class="flex-box">
+      <div class="home-prod-view" th:each="list : ${list}">
+        
+              <a th:href="@{|/buyProduct?code=${list.code}|}"><img class="product-image"
+               th:src="@{|/productImage?code=${list.code}|}" /></a><br>
+            Name: <span th:utext="${list.name}"></span><br>
+            Price: <span th:utext="${#numbers.formatDecimal(list.price,3,2,'COMMA')}"></span>
+            <h5><a th:href="@{|/productDetail?code=${list.code}&name=${list.name}&price=${list.price} |}">See Detail</a></h5>
+            
+            <!--    <a th:href="@{|/buyProduct?code=${product.code}|}">Buy Now</a>  -->
+            
+            
+            </div>
+          </div> 
+
+<!-- footer -->
+<div th:fragment="footer" class="footer-container" >
+ 
+    <a https://web.facebook.com/ict xperience>ICT Xperience</a>
+   <br>
+    <a>A Prototype of Online shope</a>
+    
+</div>
+
+</body>
+</html>

@@ -81,7 +81,7 @@ body {
 .product-preview-container {
     border: 1px solid #ccc;
     padding: 5px;
-    width: 250px;
+    width: 400px;
     margin: 10px ;
     display: inline-block;
     text-align:left;
@@ -93,13 +93,13 @@ body {
  
  
 .product-image {
-    width: 220px;
-    height: 140px;
-    padding: 5px;
+    width: 350px;
+    height: 450px;
+    padding: 1px;
 }
 
 .product-image:hover {
-    opacity: 5;
+    opacity: 1;
     background-color: #f2f2f2f2
 }
 
@@ -161,12 +161,26 @@ table td {
 		
 }  
 
-.home-prod-view{
+.prod-view{
 		margin-right: auto;
 		margin-left: auto;
+		height: 550%;
+		width: 350px;
 	
-}		
+}
+
+.prod-view .product-image{
 		
+		height: 750%;
+		width: 350px;
+}		
+	
+	.home-prod-view .sample_view{
+		
+		height: 1000%;
+		width: 550px;
+	
+}			
 		
 .subhead-container {
     text-align: left;
